@@ -12,18 +12,17 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *
- * @author 420190038
+ * Hospital Records, obtains records from a file and allows for search and deletion of them.
+ * @author Matthew Dods 420190038
  */
 public class HospitalRecords {
     
     private static ArrayList objectList = new ArrayList();
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        
         HospitalRecords.obtainRecords();
         Scanner sc = new Scanner(System.in);
         System.out.println("**Patient records have been recorded successfully**\nPress S for search, Press E for exit.");
@@ -66,12 +65,19 @@ public class HospitalRecords {
         }
     }
     
+    /**
+     * printList, prints the listed objects in a readable format.
+     * @param list - the list with our created objects (patients)
+     */
     public static void printList(ArrayList list){
         list.forEach((o) -> {
             System.out.println(o + "\n");
         });
     }
     
+    /**
+     * obtainRecords, reads the file provided and calls Patient constructor.
+     */
     public static void obtainRecords(){
         String path = "ListOfPatients.txt";
         //Use path to the ListOfPatients.txt here
