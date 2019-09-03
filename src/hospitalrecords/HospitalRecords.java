@@ -32,14 +32,14 @@ public class HospitalRecords {
             String input = sc.next();
             if ("S".equals(input.toUpperCase())) {
                 System.out.println("\nEnter Patient ID to search. Please use capitals.");
-                int a = 0;
+                int containN = 0; // how many times an input has been found in an 'id'
                 input = sc.next();
                 if (input.length() == 6) {
                     for (Object id : objectList) {
                         if (id.toString().contains(input)){ 
-                            System.out.println("\n" + id + "\nWould you like to delete this patients records? Y or N.");
+                            System.out.println("\n" + id + "\n\nWould you like to delete this patients records? Y or N.");
                             String input2 = sc.next();
-                            a++;
+                            containN++;
                             if ("Y".equals(input2.toUpperCase())){
                                 objectList.remove(id);
                                 System.out.println("\nDeletion successful.");
@@ -53,7 +53,7 @@ public class HospitalRecords {
                     }   
                 } else {
                 }
-                if (a > 0) {
+                if (containN > 0) {
                     System.out.println("\nOverall Success. To continue enter S or E.");
                 }else {
                     System.out.println("\nNo such ID found. To continue enter S or E.");
